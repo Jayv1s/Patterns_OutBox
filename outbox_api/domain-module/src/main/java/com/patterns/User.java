@@ -1,4 +1,4 @@
-package com.patterns.outbox_api;
+package com.patterns;
 
 
 public class User {

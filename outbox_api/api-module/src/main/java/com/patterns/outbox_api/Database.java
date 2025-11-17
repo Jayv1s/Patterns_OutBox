@@ -1,5 +1,6 @@
 package com.patterns.outbox_api;
 
+import com.patterns.User;
 import com.patterns.outbox_api.entity.UserEntity;
 import com.patterns.outbox_api.entity.UsersEventsEntity;
 import jakarta.persistence.EntityManager;

@@ -1,0 +1,7 @@
+- [ ] Implement Kafka Consumer;
+- [ ] Implement View logic to sum amount;
+- [ ] Implement API /total_amount;
+- [ ] Update code to use Dependency Injection;
+- [ ] Update offset logic to not break when Container is recreated;
+- [ ] Add unit tests;
+- 

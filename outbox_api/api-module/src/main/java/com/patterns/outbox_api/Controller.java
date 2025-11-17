@@ -1,5 +1,6 @@
 package com.patterns.outbox_api;
 
+import com.patterns.User;
 import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
