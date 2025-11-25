@@ -1,4 +1,4 @@
-package com.patterns.outbox_api.entity;
+package com.patterns.entity;
 
 import jakarta.persistence.*;
 

@@ -1,5 +1,6 @@
 package com.patterns.outbox_api;
 
+import com.patterns.PersistenceLayer;
 import com.patterns.User;
 import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
@@ -13,17 +14,17 @@ import java.net.URI;
 @RestController
 public class Controller {
 
-    private final Database database;
+    private final PersistenceLayer persistenceLayer;
 
-    public Controller(Database database) {
-        this.database = database;
+    public Controller(PersistenceLayer persistenceLayer) {
+        this.persistenceLayer = persistenceLayer;
     }
 
     @PostMapping("/user")
     @Transactional
     ResponseEntity<?> postUser(@RequestBody User user) {
-        this.database.insertUser(user);
-        this.database.insertUserEvents(user);
+        this.persistenceLayer.insertUser(user);
+        this.persistenceLayer.insertUserEvents(user);
 
         return ResponseEntity.created(URI.create("")).build();
     }

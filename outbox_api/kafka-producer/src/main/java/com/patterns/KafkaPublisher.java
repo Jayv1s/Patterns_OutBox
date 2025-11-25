@@ -2,7 +2,10 @@ package com.patterns;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
+
+import java.util.Objects;
 
 @Service
 public class KafkaPublisher {
@@ -16,7 +19,13 @@ public class KafkaPublisher {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void sendMessage(UserEvents msg) {
-        kafkaTemplate.send(topicName, msg.id_event.toString(), msg);
+    public boolean sendMessage(UserEvents msg) {
+        try {
+            SendResult<String, UserEvents> result = kafkaTemplate.send(topicName, msg.id_event.toString(), msg).get();
+
+            return Objects.nonNull(result);
+        } catch (Exception exception) {
+            return false;
+        }
     }
 }

@@ -26,6 +26,8 @@
 		<module>main-module</module>
 		<module>kafka-producer</module>
         <module>domain-module</module>
+        <module>repository-module</module>
+        <module>infrastructure-module</module>
     </modules>
 	<scm>
 		<connection/>
