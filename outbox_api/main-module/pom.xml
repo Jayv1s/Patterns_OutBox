@@ -41,7 +41,7 @@
         </dependency>
         <dependency>
             <groupId>com.patterns</groupId>
-            <artifactId>infrastructure-module</artifactId>
+            <artifactId>kafka-consumer</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

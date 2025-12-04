@@ -21,6 +21,7 @@ public class KafkaPublisher {
 
     public boolean sendMessage(UserEvents msg) {
         try {
+            System.out.println("Publishing: " + msg);
             SendResult<String, UserEvents> result = kafkaTemplate.send(topicName, msg.id_event.toString(), msg).get();
 
             return Objects.nonNull(result);

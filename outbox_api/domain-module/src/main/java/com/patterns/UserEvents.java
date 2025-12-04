@@ -6,6 +6,8 @@ public class UserEvents {
     public Long money;
     public String status;
 
+    public UserEvents(){}
+
     public UserEvents(Long id_event, Long id_user, Long money, String status) {
         this.id_event = id_event;
         this.id_user = id_user;
