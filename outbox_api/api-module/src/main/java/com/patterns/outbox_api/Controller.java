@@ -23,7 +23,7 @@ public class Controller {
     @PostMapping("/user")
     @Transactional
     ResponseEntity<?> postUser(@RequestBody User user) {
-        this.persistenceLayer.insertUser(user);
+        this.persistenceLayer.upsert(user);
         this.persistenceLayer.insertUserEvents(user);
 
         return ResponseEntity.created(URI.create("")).build();

@@ -17,19 +17,15 @@ public class PersistenceLayer {
     }
 
     @Transactional
-    public User insertUser(User user) {
-        UserEntity userEntity = new UserEntity(user.getName(), user.getMoney());
-        entityManager.persist(userEntity);
-
-        user.setId(userEntity.getId());
-
-        return user;
+    public void upsert(User user) {
+        UserEntity userEntity = new UserEntity(user.getId(), user.getName(), user.getMoney());
+        entityManager.merge(userEntity);
     }
 
     @Transactional
     public void insertUserEvents(User user) {
         UsersEventsEntity usersEventsEntity = new UsersEventsEntity(user.getId(), user.getMoney(), EventStatus.PENDING.name());
-        entityManager.persist(usersEventsEntity);
+        entityManager.merge(usersEventsEntity);
     }
 
     @Transactional
